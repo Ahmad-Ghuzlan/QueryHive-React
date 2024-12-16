@@ -11,14 +11,14 @@ const SearchPage: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedTab, setSelectedTab] = useState<string>("All");
-  const resultsPerPage = 20; // Number of results displayed per page
+  const resultsPerPage = 20; 
 
   const { query } = useParams<{ query: string }>();
   const navigate = useNavigate();
 
   // Fetch results from the API
   const fetchResults = async (query: string) => {
-    if (!query.trim()) return; // Do nothing if the query is empty
+    if (!query.trim()) return; 
     try {
       const response = await axios.get(
         `http://localhost:3000/search?q=${query}`
@@ -53,7 +53,7 @@ const SearchPage: React.FC = () => {
   const handleSearchSubmit = (query: string) => {
     if (!query.trim()) {
       console.log("Search query is empty. Staying on the same page.");
-      return; // Do nothing if the query is empty
+      return; 
     }
     setSearchQuery(query);
     navigate(`/search/${query}`);
@@ -65,11 +65,7 @@ const SearchPage: React.FC = () => {
     setSelectedTab(tab);
     const route = tab === "Images" ? `/image_results/${searchQuery}` : `/search/${searchQuery}`;
     navigate(route);
-    if (tab === "Images") {
-      console.log("Switching to Images tab...");
-    } else {
-      fetchResults(searchQuery);
-    }
+    
   };
 
   return (

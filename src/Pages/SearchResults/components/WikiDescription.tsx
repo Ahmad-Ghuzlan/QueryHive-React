@@ -10,7 +10,7 @@ const WikiDescription: React.FC<WikiDescriptionProps> = ({ query }) => {
   const [link, setLink] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!query) return; // Don't fetch if there's no query
+    if (!query) return; 
 
     const fetchDescription = async () => {
       try {

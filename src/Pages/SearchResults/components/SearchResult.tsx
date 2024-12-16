@@ -12,8 +12,8 @@ interface Result {
 
 const SearchResult: React.FC<SearchResultProps> = ({ query }) => {
   const [results, setResults] = useState<Result[]>([]);
-  const [currentPage, setCurrentPage] = useState<number>(1); // To keep track of the current page
-  const resultsPerPage = 10; // Number of results to display per page
+  const [currentPage, setCurrentPage] = useState<number>(1); 
+  const resultsPerPage = 10; 
 
   
   

@@ -1,7 +1,7 @@
 :root {
-    --text-color: #e0e0e0; /* Light text color */
-    --link-color: #1a73e8; /* Google's blue for links */
-    --link-hover-color: #4285f4; /* Brighter blue on hover */
+    --text-color: #e0e0e0; 
+    --link-color: #1a73e8; 
+    --link-hover-color: #4285f4; 
     margin: 0;
     padding: 0;
     height: 100%;
@@ -10,26 +10,31 @@
 
 /* Container for search page */
 .search-page {
-    display: grid; /* Use CSS Grid for layout */
+    display: grid; 
     grid-template-areas:
         "search-bar search-bar"
-        "results wikipedia"; /* Define layout areas */
-    grid-template-columns: 2fr 1fr; /* Results take 2/3, Wikipedia 1/3 */
-    grid-gap: 20px; /* Add space between grid items */
+        "results wikipedia"; 
+    grid-template-columns: 2fr 1fr; 
+    grid-gap: 20px; 
     max-width: 100%;
-    margin: 0 auto; /* Center the grid horizontally */
+    margin: 0 auto; 
     padding: 16px 20px 0 112px;
-    background-color: var(--background-color); /* Light-dark background */
-    color: var(--text-color); /* Default text color */
+    background-color: var(--background-color);  
+    color: var(--text-color); 
 }
+.resultbar{
+    position:absolute;
+    top:100px;
+    right:660px;
 
+}
 
 /* Search bar at the top center */
 .search-bar-container {
-    grid-area: search-bar; /* Place in the search-bar grid area */
+    grid-area: search-bar; 
     display: flex;
-    justify-content: center; /* Center the search bar horizontally */
-    align-items: center; /* Center the search bar vertically */
+    justify-content: center; 
+    align-items: center; 
     margin-bottom: 20px;
     width: 100%;
     position: relative;
@@ -37,17 +42,17 @@
 
 /* Left-aligned search results container */
 .search-results {
-    grid-area: results; /* Place in the results grid area */
-    margin-right: 20px; /* Add spacing to the right */
+    grid-area: results; 
+    margin-right: 20px; 
 }
 
 /* Each result item - Container shape */
 .result-item {
     padding: 10px;
     border-radius: 10px;
-    background-color: var(--result-background-color); /* Slightly lighter dark */
+    background-color: var(--result-background-color); 
     transition: transform 0.3s ease;
-    width: 70%; /* Ensure results take full width of the container */
+    width: 70%; 
 }
 
 /* Title of result */
@@ -56,7 +61,7 @@
     font-size: 20px;
     line-height: 1.75rem;
     font-weight: 500;
-    color: var(--link-color); /* Google's blue for titles */
+    color: var(--link-color); 
     height: 28px;
 }
 
@@ -76,32 +81,32 @@
 }
 
 .result-link:hover {
-    color: var(--link-hover-color); /* Brighter blue on hover */
+    color: var(--link-hover-color); 
     text-decoration: underline;
 }
 
 /* Pagination styling */
 .pagination {
     display: flex;
-    justify-content: center; /* Center-align the pagination controls */
-    margin-top: 20px; /* Add spacing above the pagination */
-    margin-bottom: 20px; /* Add spacing below the pagination */
-    width: 100%; /* Ensure it spans the full width of the container */
-    padding: 10px 0; /* Add padding for better spacing */
-    background-color: var(--background-color); /* Optional: match page background */
-    border-top: 1px solid var(--text-color); /* Optional: add a top border for separation */
+    justify-content: center; 
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+    width: 100%; 
+    padding: 10px 0; 
+    background-color: var(--background-color); 
+    border-top: 1px solid var(--text-color); 
 }
 
 /* Wikipedia Box Style */
 .wikipedia-box {
-    grid-area: wikipedia; /* Place in the wikipedia grid area */
-    position: sticky; /* Keep the box visible when scrolling */
-    top: 20px; /* Stick to the top of the viewport */
-    background-color: var(--result-background-color); /* Slightly lighter dark */
+    grid-area: wikipedia; 
+    position: sticky; 
+    top: 20px; 
+    background-color: var(--result-background-color); 
     border-radius: 8px;
     padding: 15px;
     font-family: Arial, sans-serif;
-    color: var(--text-color); /* Adapt text color for dark mode */
+    color: var(--text-color); 
 }
 
 /* Title Style */
@@ -120,7 +125,7 @@
 }
 
 .wikipedia-box .wikipedia-title:hover {
-    color: var(--link-hover-color); /* Brighter blue on hover */
+    color: var(--link-hover-color); 
     text-decoration: underline;
 }
 
@@ -128,11 +133,11 @@
     font-size: 14px;
     line-height: 1.5;
     color: rgb(var(--neutral-focus) / var(--tw-text-opacity));
-    display: -webkit-box; /* Create a box layout */
-    -webkit-line-clamp: 3; /* Limit to 3 lines (approximate 200 characters) */
+    display: -webkit-box; 
+    -webkit-line-clamp: 3; 
     -webkit-box-orient: vertical;
-    overflow: hidden; /* Hide overflow */
-    text-overflow: ellipsis; /* Add "..." at the end */
+    overflow: hidden; 
+    text-overflow: ellipsis; 
 }
 
 /* Media Queries for Mobile */
@@ -142,8 +147,8 @@
             "search-bar"
             "resultbar"
             "wikipedia"
-            "results"; /* Stack vertically */
-        grid-template-columns: 1fr; /* Single column layout */
+            "results"; 
+        grid-template-columns: 1fr; 
         grid-gap: 20px;
     }
 
@@ -152,6 +157,6 @@
     .search-results,
     .result-item,
     .wikipedia-box {
-        width: 100%; /* Full width for all sections */
+        width: 100%; 
     }
 }

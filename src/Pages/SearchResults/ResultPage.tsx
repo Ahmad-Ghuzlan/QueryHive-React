@@ -5,8 +5,8 @@ import ResultBar from './components/ResultBar';
 import { useParams } from 'react-router-dom';
 
 const ResultPage: React.FC = () => {
-  const { query } = useParams<{ query: string }>(); // Get the query from the URL
-  const [selectedTab, setSelectedTab] = useState<string>("All"); // Track the current tab
+  const { query } = useParams<{ query: string }>(); 
+  const [selectedTab, setSelectedTab] = useState<string>("All"); 
 
   const handleTabChange = (tab: string) => {
     setSelectedTab(tab);
@@ -15,7 +15,7 @@ const ResultPage: React.FC = () => {
 
   return (
     <div>
-      <NavBar />
+      {/* <NavBar /> */}
       {/* Pass the query and tab change handler to ResultBar */}
       {/* <ResultBar query={query || ""} onTabChange={handleTabChange} /> */}
       <SearchPage />

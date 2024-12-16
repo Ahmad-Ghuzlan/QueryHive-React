@@ -16,12 +16,11 @@ const ImageResultPage: React.FC = () => {
   const navigate = useNavigate();
 
   const fetchImageResults = async (query: string) => {
-    if (!query.trim()) return; // Do nothing if the query is empty
+    if (!query.trim()) return; 
     try {
       const response = await axios.get(
         `http://localhost:3000/search_images?q=${query}`
       );
-      console.log(response.data);
       setImageResults(response.data["images_results"] || []);
     } catch (error) {
       console.error("Error fetching image results:", error);
@@ -31,7 +30,6 @@ const ImageResultPage: React.FC = () => {
 
   useEffect(() => {
     if (query) {
-      console.log("Query from useParams:", query);
       setSearchQuery(query);
       fetchImageResults(query);
     }
@@ -46,22 +44,21 @@ const ImageResultPage: React.FC = () => {
 
   const handleSearchSubmit = (query: string) => {
     if (!query.trim()) {
-      console.log("Search query is empty. Staying on the same page.");
-      return; // Do nothing if the query is empty
+      return; 
     }
     setSearchQuery(query);
-    navigate(`/image_results/${query}`); // Navigate to the new route
-    fetchImageResults(query); // Fetch the results for the new query
+    navigate(`/image_results/${query}`); 
+    fetchImageResults(query); 
   };
 
   const handleTabChange = (tab: string) => {
     const route = tab === "Images" ? `/image_results/${searchQuery}` : `/search/${searchQuery}`;
-    navigate(route); // Navigate to the appropriate tab route
+    navigate(route); 
   };
 
   return (
     <div className="image-result-page">
-      <NavBar />
+      {/* <NavBar /> */}
       {/* Search bar */}
       <div className="search-bar-container">
         <SearchBar onSubmit={handleSearchSubmit} />

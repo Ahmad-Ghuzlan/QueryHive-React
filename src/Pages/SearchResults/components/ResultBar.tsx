@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 interface ResultBarProps {
   query: string;
-  onTabChange: (tab: string) => void; // Callback to handle tab change
+  onTabChange: (tab: string) => void; 
 }
 
 const ResultBar: React.FC<ResultBarProps> = ({ query, onTabChange }) => {

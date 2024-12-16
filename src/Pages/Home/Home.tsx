@@ -5,6 +5,7 @@ import SearchBar from './components/SearchBar';
 import NavBar from './components/NaveBar';
 import Footer from './components/Footer';
 import "./style/HomeStyle.css"; 
+import { GlobalProvider } from '../../GlobalSongProvider';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -23,22 +24,24 @@ const Home: React.FC = () => {
   const handleSearchSubmit = (query: string) => {
     if (!query.trim()) {
       console.log("Search query is empty. Staying on the same page.");
-      return; // Do nothing if the query is empty
+      return; 
     }
     navigate("/search/" + query);
   };
 
   return (
-    <div className="home-container">
-      <NavBar />
-      <div className="bodyCenter">
-        <Logo text="QueryHive" fontSize="3rem" color="white" />
-        <div className="sublogo">Independent and Open Source search engine</div>
+    <GlobalProvider>
+      <div className="home-container">
+        {/* <NavBar /> */}
+        <div className="bodyCenter">
+          <Logo text="QueryHive" fontSize="3rem" color="white" />
+          <div className="sublogo">Independent and Open Source search engine</div>
+        </div>
+        {/* Pass the handler to SearchBar */}
+        <SearchBar onSubmit={handleSearchSubmit} />
+        <Footer />
       </div>
-      {/* Pass the handler to SearchBar */}
-      <SearchBar onSubmit={handleSearchSubmit} />
-      <Footer />
-    </div>
+     </GlobalProvider>
   );
 };
 
